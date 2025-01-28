@@ -22,6 +22,9 @@ if (-not $existingRemote) {
     Write-Host "Added remote origin: $remote"
 }
 
+# Pull the latest changes from the remote repository
+git pull origin main --rebase
+
 # Push to GitHub
 git push -u origin main
 
