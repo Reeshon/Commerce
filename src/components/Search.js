@@ -1,11 +1,12 @@
+
 import React from 'react';
 
-function Cart() {
+function Search() {
   return (
     <div>
-      <h1>Cart</h1>
+      <h1>Search</h1>
     </div>
   );
 }
 
-export default Cart;
+export default Search;
