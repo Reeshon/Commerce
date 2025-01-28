@@ -23,6 +23,6 @@ if (-not $existingRemote) {
 }
 
 # Push to GitHub
-git push -u origin master
+git push -u origin main
 
 Write-Host "Files pushed to GitHub successfully."
