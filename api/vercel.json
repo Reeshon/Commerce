@@ -1,0 +1,18 @@
+
+{
+  "version": 2,
+  "builds": [
+    { "src": "products.js", "use": "@vercel/node" },
+    { "src": "cart.js", "use": "@vercel/node" },
+    { "src": "wishlist.js", "use": "@vercel/node" },
+    { "src": "search.js", "use": "@vercel/node" },
+    { "src": "../src/index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/products", "dest": "products.js" },
+    { "src": "/api/cart", "dest": "cart.js" },
+    { "src": "/api/wishlist", "dest": "wishlist.js" },
+    { "src": "/api/search", "dest": "search.js" },
+    { "src": "/(.*)", "dest": "../src/index.js" }
+  ]
+}
