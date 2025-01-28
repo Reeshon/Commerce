@@ -11,11 +11,11 @@ This solution quickly and securely creates a web app using a three-tiered archit
 You can choose whether to deploy your solution through the console directly or download as Terraform on GitHub to deploy later.
 
 ### Architecture
-1. User requests are sent to the front end, which is deployed on Vercel to support high scalability applications.
-2. The request then lands on the middle tier, which is the API layer that provides access to the backend. This middleware is deployed as serverless functions on Vercel.
+1. User requests are sent to the front end, which is deployed on GitHub Pages to support high scalability applications.
+2. The request then lands on the middle tier, which is the API layer that provides access to the backend. This middleware is deployed as serverless functions on GitHub Pages.
 3. The frequent requests are cached in Memorystore for Redis for serving the request fast in-memory. The response is then served back to the user.
 4. For new requests from the users, Cloud SQL provides the backend as the database layer. The response is then served back to the user.
-5. For DevOps, Vercel handles the continuous deployment from GitHub repositories.
+5. For DevOps, GitHub Actions handles the continuous deployment from GitHub repositories.
 
 ## Documentation
 - [Architecture Diagram](assets/three_tier_web_app_v4.svg)
@@ -94,73 +94,58 @@ resources of this module:
 The [Project Factory module][project-factory-module] can be used to
 provision a project with the necessary APIs enabled.
 
-## Deploying with Vercel and GitHub Pages
+## Deploying with GitHub Pages
 
 ### 1. **Set Up GitHub Repository**
 
 - Ensure your project is pushed to a GitHub repository.
 - Navigate to your repository on GitHub.
 
-### 2. **Connect Repository to Vercel**
+### 2. **Configure GitHub Pages**
 
-- Go to [Vercel](https://vercel.com/) and sign in or create an account.
-- Click on **"New Project"** and select your GitHub repository.
-- Follow the prompts to import your project.
+- Go to the repository settings on GitHub.
+- Under the "Pages" section, select the branch you want to deploy from (e.g., `main` or `gh-pages`).
+- Save the settings to enable GitHub Pages for your repository.
 
-### 3. **Configure Vercel for Frontend and Backend**
+### 3. **Update `package.json`**
 
-- **Frontend:**
-  - Vercel automatically detects your React frontend.
-  - Ensure the build command is `npm run build` and the output directory is `build`.
-  
-- **Backend APIs (Serverless Functions):**
-  - Move your backend API files to the `/api` directory in the root of your project.
-    ```
-    Commerce/
-    ├── api/
-    │   ├── products.js
-    │   ├── cart.js
-    │   ├── wishlist.js
-    │   └── search.js
-    ├── src/
-    │   └── ...frontend files...
-    ├── package.json
-    ├── vercel.json
-    └── ...other files...
-    ```
-  - Vercel treats files inside the `/api` directory as serverless functions.
-
-### 4. **Update `vercel.json`**
-
-- Ensure you have a `vercel.json` file in the root of your project to configure serverless functions.
+- Ensure you have the following scripts in your `package.json` to build and deploy your React app to GitHub Pages.
 
 ```json
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "src/index.js", "use": "@vercel/node" },
-    { "src": "src/**/*.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/products", "dest": "api/products.js" },
-    { "src": "/api/cart", "dest": "api/cart.js" },
-    { "src": "/api/wishlist", "dest": "api/wishlist.js" },
-    { "src": "/api/search", "dest": "api/search.js" },
-    { "src": "/(.*)", "dest": "src/index.js" }
-  ]
+  "name": "commerce",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://<your-github-username>.github.io/<your-repo-name>",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "react-scripts": "^5.0.1",
+    "gh-pages": "^3.2.3"
+  }
 }
 ```
 
-### 5. **Remove Docker Build Commands**
+### 4. **Deploy to GitHub Pages**
 
-<!-- The following Docker build commands are no longer needed as Vercel handles deployments. -->
+- Run the following command to deploy your app to GitHub Pages:
 
-<!--
-```powershell
-docker build -t gcr.io/your-project-id/products-api:latest ./products
-docker build -t gcr.io/your-project-id/cart-api:latest ./cart
-docker build -t gcr.io/your-project-id/wishlist-api:latest ./wishlist
-docker build -t gcr.io/your-project-id/search-api:latest ./search
+```sh
+npm run deploy
 ```
--->
+
+Your React app should now be deployed to GitHub Pages and accessible via the URL provided in the GitHub Pages settings.
