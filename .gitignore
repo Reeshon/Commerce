@@ -51,3 +51,5 @@ temp.vars
 cft.json
 node_modules
 package-lock.json
+
+!gh-pages

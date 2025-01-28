@@ -69,6 +69,7 @@ resource "google_service_account" "runsa" {
   display_name = "Service Account for Cloud Run"
 }
 
+// Remove Google Cloud deployment resources
 // resource "google_project_iam_member" "allrun" {
 //   for_each = toset(var.run_roles_list)
 //   project  = data.google_project.project.number
@@ -181,9 +182,9 @@ resource "random_id" "id" {
 // }
 
 # Remove any remaining Cloud Run or Docker related configurations
-# resource "google_cloud_run_service" "api" { ... }
-# resource "google_cloud_run_service" "fe" { ... }
-# ...other Cloud Run resources...
+// resource "google_cloud_run_service" "api" { ... }
+// resource "google_cloud_run_service" "fe" { ... }
+// ...other Cloud Run resources...
 
 // resource "google_cloud_run_service_iam_member" "noauth_api" {
 //   location = google_cloud_run_service.api.location
