@@ -16,7 +16,7 @@ services:
   # products_api:
   #   build:
   #     context: ./backend/products
-  #   image: gcr.io/YOUR_PROJECT_ID/products-api:latest
+  #   image: gcr.io/Reeshon/Commerce/products-api:latest
   #   environment:
   #     - DATABASE_URL=your_database_url
   #   ports:
@@ -25,7 +25,7 @@ services:
   # cart_api:
   #   build:
   #     context: ./backend/cart
-  #   image: gcr.io/YOUR_PROJECT_ID/cart-api:latest
+  #   image: gcr.io/Reeshon/Commerce/cart-api:latest
   #   environment:
   #     - DATABASE_URL=your_database_url
   #   ports:
@@ -34,7 +34,7 @@ services:
   # wishlist_api:
   #   build:
   #     context: ./backend/wishlist
-  #   image: gcr.io/YOUR_PROJECT_ID/wishlist-api:latest
+  #   image: gcr.io/Reeshon/Commerce/wishlist-api:latest
   #   environment:
   #     - DATABASE_URL=your_database_url
   #   ports:
@@ -43,7 +43,7 @@ services:
   # search_api:
   #   build:
   #     context: ./backend/search
-  #   image: gcr.io/YOUR_PROJECT_ID/search-api:latest
+  #   image: gcr.io/Reeshon/Commerce/search-api:latest
   #   environment:
   #     - DATABASE_URL=your_database_url
   #   ports:

@@ -151,3 +151,16 @@ provision a project with the necessary APIs enabled.
   ]
 }
 ```
+
+### 5. **Remove Docker Build Commands**
+
+<!-- The following Docker build commands are no longer needed as Vercel handles deployments. -->
+
+<!--
+```powershell
+docker build -t gcr.io/your-project-id/products-api:latest ./products
+docker build -t gcr.io/your-project-id/cart-api:latest ./cart
+docker build -t gcr.io/your-project-id/wishlist-api:latest ./wishlist
+docker build -t gcr.io/your-project-id/search-api:latest ./search
+```
+-->

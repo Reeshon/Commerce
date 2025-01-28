@@ -180,10 +180,10 @@ resource "random_id" "id" {
 //   deletion_policy = "ABANDON"
 // }
 
-// Remove any remaining Cloud Run or Docker related configurations
-// resource "google_cloud_run_service" "api" { ... }
-// resource "google_cloud_run_service" "fe" { ... }
-// ...other Cloud Run resources...
+# Remove any remaining Cloud Run or Docker related configurations
+# resource "google_cloud_run_service" "api" { ... }
+# resource "google_cloud_run_service" "fe" { ... }
+# ...other Cloud Run resources...
 
 // resource "google_cloud_run_service_iam_member" "noauth_api" {
 //   location = google_cloud_run_service.api.location

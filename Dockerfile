@@ -7,15 +7,6 @@ COPY . .
 RUN npm run build
 
 # Remove backend build stages
-# # Build and deploy Products API
-# FROM node:14 AS products-build
-# WORKDIR /app
-# COPY ./backend/products/package.json ./backend/products/
-# RUN npm install
-# COPY ./backend/products ./backend/products
-# RUN npm run build
-
-# # Repeat similar steps for Cart, Wishlist, and Search APIs
 
 # Stage 2: Serve the app with NGINX
 FROM nginx:alpine
