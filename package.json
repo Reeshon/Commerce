@@ -14,8 +14,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "react-scripts start",
-    "vercel-build": "npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
