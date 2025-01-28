@@ -7,6 +7,9 @@ if (!(Test-Path -Path ".git")) {
     Write-Host "Initialized a new Git repository."
 }
 
+# Pull the latest changes from the remote repository
+git pull origin main --rebase
+
 # Add all files to staging
 git add .
 
@@ -21,9 +24,6 @@ if (-not $existingRemote) {
     git remote add origin $remote
     Write-Host "Added remote origin: $remote"
 }
-
-# Pull the latest changes from the remote repository
-git pull origin main --rebase
 
 # Push to GitHub
 git push -u origin main
