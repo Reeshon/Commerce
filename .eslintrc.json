@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "import/no-webpack-loader-syntax": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-use-before-define": ["error", {
+      "functions": false,
+      "classes": true,
+      "variables": true
+    }],
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "warn"
+  }
+}
