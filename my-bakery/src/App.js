@@ -25,7 +25,6 @@ root.render(
   </React.StrictMode>
 );
 ```
-```javascript
 import React, { useState } from 'react';
 import { auth } from './firebaseConfig';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
