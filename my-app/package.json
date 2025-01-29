@@ -1,0 +1,26 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "next": "latest",
+    "bootstrap": "^5.3.0",
+    "react-bootstrap": "^2.8.0",
+    "react-toastify": "^8.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "latest",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}

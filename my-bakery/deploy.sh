@@ -1,16 +1,16 @@
-# Navigate to the project directory
-cd /c:/Users/reesh/Commerce/my-bakery
-
+#!/bin/bash
 # Build the project
 npm run build
 
-# Stage changes
-git add .
+# Navigate into the build output directory
+cd dist
 
-# Commit changes
-git commit -m "Update Firebase configuration and fix routing"
+# Add .nojekyll to bypass GitHub Page's default behavior
+touch .nojekyll
+
+# Stage and commit changes
+git add .
+git commit -m "Deploy updates"
 
 # Push to gh-pages branch
-git checkout gh-pages
-git merge main
 git push origin gh-pages
