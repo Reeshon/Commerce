@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const WishlistContext = createContext();
 
+// Custom hook to use the WishlistContext
 export function useWishlist() {
   return useContext(WishlistContext);
 }
@@ -9,19 +10,19 @@ export function useWishlist() {
 export function WishlistProvider({ children }) {
   const [wishlistItems, setWishlistItems] = useState([]);
 
+  // Function to add a product to the wishlist
   const addToWishlist = (product) => {
-    setWishlistItems(prev => {
-      if (!prev.find(item => item.id === product.id)) {
-        return [...prev, product];
-      }
-      return prev;
-    });
+    setWishlistItems(prevItems => [...prevItems, product]);
+    toast.success(`${product.name} added to wishlist!`);
   };
 
+  // Function to remove a product from the wishlist
   const removeFromWishlist = (productId) => {
-    setWishlistItems(prev => prev.filter(item => item.id !== productId));
+    setWishlistItems(prevItems => prevItems.filter(item => item.id !== productId));
+    toast.info(`Product removed from wishlist.`);
   };
 
+  // Function to check if a product is in the wishlist
   const isInWishlist = (productId) => {
     return wishlistItems.some(item => item.id === productId);
   };

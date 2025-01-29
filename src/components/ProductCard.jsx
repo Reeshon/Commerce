@@ -11,6 +11,17 @@ function ProductCard({ product }) {
 
   const handleAddToCart = () => {
     addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
+
+  const toggleWishlist = () => {
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+      toast.info(`${product.name} removed from wishlist.`);
+    } else {
+      addToWishlist(product);
+      toast.success(`${product.name} added to wishlist!`);
+    }
   };
 
   return (
