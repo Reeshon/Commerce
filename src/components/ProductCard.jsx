@@ -12,9 +12,11 @@ function ProductCard({ product }) {
   const handleAddToCart = () => {
     addToCart(product);
     toast.success(`${product.name} added to cart!`);
+    console.log('handleAddToCart called');
   };
 
   const toggleWishlist = () => {
+    console.log('toggleWishlist called');
     if (isInWishlist(product.id)) {
       removeFromWishlist(product.id);
       toast.info(`${product.name} removed from wishlist.`);

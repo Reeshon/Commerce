@@ -49,7 +49,6 @@ function Search({ products }) {
                 </Card.Body>
               </Link>
             </Card>
-            </Card>
           </Col>
         ))}
         {results.length === 0 && query.trim() !== '' && (
@@ -63,19 +62,3 @@ function Search({ products }) {
 }
 
 export default Search;
-
-
-``` 
-}
-
-export default Search;
-          <Col>
-            <p>No products found matching your search.</p>
-          </Col>
-        )}
-      </Row>
-    </div>
-  );
-          </Col>
-        ))}
-        {results.length === 0 && query.trim() !== '' && (

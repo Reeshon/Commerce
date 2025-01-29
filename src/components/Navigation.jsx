@@ -38,7 +38,6 @@ function Navigation({ products }) {
           <Nav>
             {!currentUser && (
               <>
-            {currentUser && (
                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
               </>
@@ -55,16 +54,3 @@ function Navigation({ products }) {
 }
 
 export default Navigation;
-
-              <Button variant="outline-danger" onClick={handleLogout}>Log Out</Button>
-            )}
-          </Nav>
-          <SearchBar products={products} />
-}
-
-export default Navigation;
-
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );

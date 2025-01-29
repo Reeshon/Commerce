@@ -46,18 +46,27 @@ function Login() {
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email" className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Form.Control 
+                  type="email" 
+                  required 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                />
               </Form.Group>
               <Form.Group id="password" className="mb-3">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Form.Control 
+                  type="password" 
+                  required 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)} 
+                />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Log In
               </Button>
             </Form>
             <Button 
-        <Button 
               variant="danger" 
               className="w-100 mt-3" 
               onClick={handleGoogleSignIn}
@@ -74,22 +83,6 @@ function Login() {
         </Card>
       </div>
     </Container>
-  );
-}
-
-export default Login;
-
-          variant="danger" 
-          className="w-100 mt-3" 
-          onClick={handleGoogleSignIn}
-        >
-          Log In with Google
-        </Button>
-        <div className="w-100 text-center mt-2">
-          Need an account? <Link to="/signup">Sign Up</Link>
-        </div>
-      </Card.Body>
-    </Card>
   );
 }
 

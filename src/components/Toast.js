@@ -22,3 +22,9 @@ export const Toast = {
     });
   }
 };
+
+// Assuming there are input elements in the file
+<input
+  type="password"
+  writingsuggestions="some-value"
+/>
