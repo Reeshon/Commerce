@@ -56,6 +56,7 @@ function App() {
       image: "https://placehold.co/300x200/png?text=Cupcake+Box",
       description: "Assorted flavors, box of 6"
     }
+    // ...additional products...
   ]);
 
   return (
@@ -71,7 +72,7 @@ function App() {
                     <Route path="/" element={<><MetaTags title="Home" /><Home /></>} />
                     <Route path="/cart" element={<><MetaTags title="Cart" /><Cart /></>} />
                     <Route path="/wishlist" element={<><MetaTags title="Wishlist" /><Wishlist /></>} />
-                    <Route path="/search" element={<><MetaTags title="Search" /><Search /></>} />
+                    <Route path="/search" element={<><MetaTags title="Search" /><Search products={products} /></>} />
                     <Route path="/product/:id" element={<><MetaTags title="Product Details" /><ProductDetail products={products} /></>} />
                     <Route path="/login" element={<><MetaTags title="Login" /><Login /></>} />
                     <Route path="/signup" element={<><MetaTags title="Sign Up" /><Signup /></>} />

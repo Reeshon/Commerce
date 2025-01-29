@@ -1,15 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
 import { useWishlist } from '../contexts/WishlistContext.jsx';
 import SearchBar from './SearchBar.jsx';
 
 function Navigation({ products }) {
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch {
+      // Handle error if needed
+    }
+  };
 
   return (
     <Navbar bg="light" expand="lg" sticky="top">
@@ -23,10 +31,20 @@ function Navigation({ products }) {
             <Nav.Link as={Link} to="/wishlist">Wishlist ({wishlistItems.length})</Nav.Link>
             {currentUser && <Nav.Link as={Link} to="/profile">Profile</Nav.Link>}
             {!currentUser && (
+              <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
+            )}
+            <Nav.Link as={Link} to="/feedback">Feedback</Nav.Link>
+          </Nav>
+          <Nav>
+            {!currentUser && (
               <>
+            {currentUser && (
                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
               </>
+            )}
+            {currentUser && (
+              <Button variant="outline-danger" onClick={handleLogout}>Log Out</Button>
             )}
           </Nav>
           <SearchBar products={products} />
@@ -37,3 +55,16 @@ function Navigation({ products }) {
 }
 
 export default Navigation;
+
+              <Button variant="outline-danger" onClick={handleLogout}>Log Out</Button>
+            )}
+          </Nav>
+          <SearchBar products={products} />
+}
+
+export default Navigation;
+
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
