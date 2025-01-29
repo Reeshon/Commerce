@@ -9,7 +9,9 @@ function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
-  // ...existing code...
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   return (
     <Card className="h-100">

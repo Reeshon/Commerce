@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
+// Custom hook to use the CartContext
 export function useCart() {
   return useContext(CartContext);
 }
@@ -9,40 +10,37 @@ export function useCart() {
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
+  // Function to add a product to the cart
   const addToCart = (product) => {
-    setCartItems(prev => {
-      const existingItem = prev.find(item => item.id === product.id);
+    setCartItems(prevItems => {
+      const existingItem = prevItems.find(item => item.id === product.id);
       if (existingItem) {
-        return prev.map(item =>
-          item.id === product.id
-            ? { ...item, quantity: (item.quantity || 1) + 1 }
-            : item
+        // If the product is already in the cart, increase its quantity
+        return prevItems.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
+      } else {
+        // If the product is not in the cart, add it with quantity 1
+        return [...prevItems, { ...product, quantity: 1 }];
       }
-      return [...prev, { ...product, quantity: 1 }];
     });
   };
 
+  // Function to remove a product from the cart
   const removeFromCart = (productId) => {
-    setCartItems(prev => prev.filter(item => item.id !== productId));
+    setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
 
-  const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
-    setCartItems(prev =>
-      prev.map(item =>
-        item.id === productId
-          ? { ...item, quantity: newQuantity }
-          : item
-      )
-    );
+  // Function to clear the cart
+  const clearCart = () => {
+    setCartItems([]);
   };
 
   const value = {
     cartItems,
     addToCart,
     removeFromCart,
-    updateQuantity
+    clearCart
   };
 
   return (
