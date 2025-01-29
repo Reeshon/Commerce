@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16.20.0'  # Update to a valid Node.js version
 
       # Remove node_modules
       - name: Clean npm cache and remove node_modules
@@ -28,7 +28,7 @@ jobs:
 
       # Install dependencies
       - name: Install Dependencies
-        run: npm ci
+        run: npm install eslint@8.57.1  # Ensure the correct ESLint version is installed
 
       # Build the project
       - name: Build Project
