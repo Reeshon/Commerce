@@ -10,9 +10,22 @@ export default defineConfig({
         Buffer: true,
         global: true,
         process: true
-      }
+      },
+      protocolImports: true
     })
   ],
+  define: {
+    global: 'globalThis',
+    'process.env': {}
+  },
+  resolve: {
+    alias: {
+      crypto: 'crypto-browserify',
+      stream: 'stream-browserify',
+      buffer: 'buffer',
+      './runtimeConfig': './runtimeConfig.browser'
+    }
+  },
   base: '/Commerce/',
   build: {
     outDir: 'dist',
@@ -26,11 +39,6 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom']
         }
       }
-    }
-  },
-  resolve: {
-    alias: {
-      './runtimeConfig': './runtimeConfig.browser'
     }
   }
 });
