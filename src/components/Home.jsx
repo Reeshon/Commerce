@@ -1,6 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+<<<<<<< HEAD
 import ProductCard from './ProductCard.jsx';
+=======
+import ProductCard from './ProductCard';
+>>>>>>> gh-pages
 
 function Home() {
   const products = [

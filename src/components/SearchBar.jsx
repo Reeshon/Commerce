@@ -31,4 +31,8 @@ function SearchBar({ products }) {
   );
 }
 
+<<<<<<< HEAD
 export default SearchBar;
+=======
+export default SearchBar;
+>>>>>>> gh-pages

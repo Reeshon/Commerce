@@ -9,6 +9,7 @@ export default defineConfig({
         outDir: 'dist',
         emptyOutDir: true,
         sourcemap: true,
+<<<<<<< HEAD
         rollupOptions: {
             input: {
                 main: path.resolve(__dirname, 'index.html')
@@ -20,5 +21,36 @@ export default defineConfig({
             '@': path.resolve(__dirname, 'src')
         },
         extensions: ['.js', '.jsx', '.json']
+=======
+        chunkSizeWarningLimit: 800,
+        rollupOptions: {
+            input: {
+                main: path.resolve(__dirname, 'index.html')
+            },
+            output: {
+                manualChunks: (id) => {
+                    if (id.includes('node_modules')) {
+                        if (id.includes('react/') || id.includes('react-dom/') || id.includes('react-router-dom/')) {
+                            return 'vendor';
+                        }
+                        if (id.includes('react-bootstrap/')) {
+                            return 'bootstrap';
+                        }
+                        if (id.includes('yup/') || id.includes('react-toastify/') || id.includes('formik/')) {
+                            return 'utils';
+                        }
+                    }
+                }
+            }
+        }
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'yup', 'react-toastify', 'formik']
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
+>>>>>>> gh-pages
     }
 });

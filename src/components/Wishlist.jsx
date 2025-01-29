@@ -28,4 +28,8 @@ function Wishlist() {
   );
 }
 
+<<<<<<< HEAD
 export default Wishlist;
+=======
+export default Wishlist;
+>>>>>>> gh-pages

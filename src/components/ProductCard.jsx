@@ -11,6 +11,7 @@ function ProductCard({ product }) {
 
   const handleAddToCart = () => {
     addToCart(product);
+<<<<<<< HEAD
     toast.success(`${product.name} added to cart!`);
     console.log('handleAddToCart called');
   };
@@ -23,6 +24,18 @@ function ProductCard({ product }) {
     } else {
       addToWishlist(product);
       toast.success(`${product.name} added to wishlist!`);
+=======
+    toast.success('Added to cart!');
+  };
+
+  const toggleWishlist = () => {
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+      toast.info('Removed from wishlist');
+    } else {
+      addToWishlist(product);
+      toast.success('Added to wishlist!');
+>>>>>>> gh-pages
     }
   };
 
@@ -37,7 +50,13 @@ function ProductCard({ product }) {
         </Card.Body>
       </Link>
       <Card.Footer className="d-flex justify-content-between">
+<<<<<<< HEAD
         <Button variant="primary" onClick={handleAddToCart}>Add to Cart</Button>
+=======
+        <Button variant="primary" onClick={handleAddToCart}>
+          Add to Cart
+        </Button>
+>>>>>>> gh-pages
         <Button 
           variant={isInWishlist(product.id) ? "danger" : "outline-danger"}
           onClick={toggleWishlist}

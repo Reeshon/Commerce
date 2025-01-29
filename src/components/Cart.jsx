@@ -1,7 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+<<<<<<< HEAD
 import { useCart } from '../contexts/CartContext.jsx';
 import ProductCard from './ProductCard.jsx';
+=======
+import { useCart } from '../contexts/CartContext';
+import ProductCard from './ProductCard';
+>>>>>>> gh-pages
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();

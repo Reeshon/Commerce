@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
@@ -19,6 +20,19 @@ function Navigation({ products }) {
     }
   };
 
+=======
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
+import { useWishlist } from '../contexts/WishlistContext';
+import SearchBar from './SearchBar';
+
+function Navigation({ products }) {
+  const { currentUser } = useAuth();
+  const { cartItems } = useCart();
+  const { wishlistItems } = useWishlist();
+
+>>>>>>> gh-pages
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
@@ -31,20 +45,26 @@ function Navigation({ products }) {
             <Nav.Link as={Link} to="/wishlist">Wishlist ({wishlistItems.length})</Nav.Link>
             {currentUser && <Nav.Link as={Link} to="/profile">Profile</Nav.Link>}
             {!currentUser && (
+<<<<<<< HEAD
               <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
             )}
             <Nav.Link as={Link} to="/feedback">Feedback</Nav.Link>
           </Nav>
           <Nav>
             {!currentUser && (
+=======
+>>>>>>> gh-pages
               <>
                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
               </>
             )}
+<<<<<<< HEAD
             {currentUser && (
               <Button variant="outline-danger" onClick={handleLogout}>Log Out</Button>
             )}
+=======
+>>>>>>> gh-pages
           </Nav>
           <SearchBar products={products} />
         </Navbar.Collapse>
@@ -53,4 +73,8 @@ function Navigation({ products }) {
   );
 }
 
+<<<<<<< HEAD
 export default Navigation;
+=======
+export default Navigation;
+>>>>>>> gh-pages

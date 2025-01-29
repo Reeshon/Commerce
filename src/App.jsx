@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
 import { AuthProvider } from './contexts/AuthContext';
+=======
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './contexts/CartContext.jsx';
+import { WishlistProvider } from './contexts/WishlistContext.jsx';
+import { AuthProvider } from './contexts/AuthContext.jsx';
+>>>>>>> gh-pages
 import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -10,6 +17,7 @@ import Wishlist from './components/Wishlist';
 import Search from './components/Search';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+<<<<<<< HEAD
 import ProductDetail from './components/ProductDetail';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -32,6 +40,8 @@ function ErrorFallback({error}) {
     </div>
   )
 }
+=======
+>>>>>>> gh-pages
 
 function App() {
   const [products] = useState([
@@ -42,6 +52,7 @@ function App() {
       image: "https://placehold.co/300x200/png?text=Chocolate+Cake",
       description: "Rich chocolate layers with ganache"
     },
+<<<<<<< HEAD
     {
       id: 2,
       name: "Artisan Bread",
@@ -102,6 +113,39 @@ function App() {
         </CartProvider>
       </AuthProvider>
     </ErrorBoundary>
+=======
+    // ...existing products...
+  ]);
+
+  return (
+    <AuthProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <Router>
+            <div className="App">
+              <Navigation products={products} />
+              <div className="main-content">
+                <Routes>
+                  {/* ...existing routes... */}
+                </Routes>
+              </div>
+              <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </div>
+          </Router>
+        </WishlistProvider>
+      </CartProvider>
+    </AuthProvider>
+>>>>>>> gh-pages
   );
 }
 

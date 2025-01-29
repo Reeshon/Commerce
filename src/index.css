@@ -18,6 +18,20 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+<<<<<<< HEAD
+=======
+}
+
+.hero-section {
+  background-color: #f8f9fa;
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+}
+
+.main-content {
+  min-height: calc(100vh - 56px);
+  padding-bottom: 2rem;
+>>>>>>> gh-pages
 }
 
 .product-card {
