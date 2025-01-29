@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "clean": "rimraf dist",
     "predeploy": "npm run clean && npm run build",
-    "deploy": "gh-pages -d dist -f"
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
