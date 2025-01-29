@@ -6,11 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "cross-env NODE_ENV=production vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "clean": "rimraf dist",
-    "predeploy": "npm run clean && npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
