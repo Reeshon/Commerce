@@ -27,10 +27,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-```
-# Ensure GitHub Pages Is Configured Correctly
-# 1. Navigate to your repository on GitHub: [https://github.com/Reeshon/Commerce](https://github.com/Reeshon/Commerce).
-# 2. Click on **Settings**.
-# 3. In the sidebar, select **Pages**.
-# 4. Under **Source**, choose the `gh-pages` branch.
-# 5. Click **Save**.
