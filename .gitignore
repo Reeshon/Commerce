@@ -41,3 +41,11 @@ firestore.rules
 # CRA
 /my-app
 /commerce-cra
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Large binary files
+*.exe
