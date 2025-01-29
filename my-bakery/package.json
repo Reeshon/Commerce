@@ -1,0 +1,41 @@
+{
+  "name": "my-bakery",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://reeshon.github.io/Commerce",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@firebase/firestore": "^4.7.6",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.0",
+    "firebase": "^11.2.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-router-bootstrap": "^0.26.3",
+    "react-router-dom": "^6.14.2",
+    "react-toastify": "^9.1.3",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.3.0",
+    "globals": "^15.14.0",
+    "vite": "^4.4.5"
+  }
+}

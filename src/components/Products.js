@@ -5,6 +5,7 @@ function Products() {
   const products = [
     {
       id: 1,
+<<<<<<< HEAD
       name: "Product 1",
       price: 99.99,
       image: "https://via.placeholder.com/150",
@@ -23,6 +24,26 @@ function Products() {
       price: 199.99,
       image: "https://via.placeholder.com/150",
       description: "This is product 3"
+=======
+      name: "Laptop",
+      price: 999.99,
+      image: "https://via.placeholder.com/150",
+      description: "High performance laptop"
+    },
+    {
+      id: 2,
+      name: "Smartphone",
+      price: 699.99,
+      image: "https://via.placeholder.com/150",
+      description: "Latest smartphone model"
+    },
+    {
+      id: 3,
+      name: "Headphones",
+      price: 199.99,
+      image: "https://via.placeholder.com/150",
+      description: "Wireless noise-canceling headphones"
+>>>>>>> gh-pages
     }
   ];
 
