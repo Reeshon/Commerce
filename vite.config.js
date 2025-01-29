@@ -1,32 +1,36 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
-  plugins: [react()],
-  optimizeDeps: {
-    esbuildOptions: {
-      // Node.js global to browser globalThis
-      define: {
-        global: 'globalThis'
-      },
-      // Enable esbuild polyfill plugins
-      plugins: [
-        NodeGlobalsPolyfillPlugin({
-          buffer: true
-        }),
-        NodeModulesPolyfillPlugin()
-      ]
+  plugins: [
+    react(),
+    nodePolyfills({
+      globals: {
+        Buffer: true,
+        global: true,
+        process: true
+      }
+    })
+  ],
+  base: '/Commerce/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    commonjsOptions: {
+      transformMixedEsModules: true
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom']
+        }
+      }
     }
   },
-  build: {
-    rollupOptions: {
-      // Enable rollup polyfills plugin
-      // used during production bundling
-      plugins: [
-        require('rollup-plugin-node-polyfills')()
-      ]
+  resolve: {
+    alias: {
+      './runtimeConfig': './runtimeConfig.browser'
     }
   }
 });

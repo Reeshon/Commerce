@@ -18,17 +18,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.20.0'  # Update to a valid Node.js version
+          node-version: '16.20.0'
+          cache: 'npm'
 
-      # Remove node_modules
-      - name: Clean npm cache and remove node_modules
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
-
-      # Install dependencies
+      # Clean install dependencies
       - name: Install Dependencies
-        run: npm install eslint@8.57.1  # Ensure the correct ESLint version is installed
+        run: |
+          npm ci
+          npm install vite-plugin-node-polyfills --save-dev
 
       # Build the project
       - name: Build Project
