@@ -20,14 +20,15 @@ jobs:
         with:
           node-version: '16'
 
-      # Remove node_modules and package-lock.json
+      # Remove node_modules
       - name: Clean npm cache and remove node_modules
         run: |
-          rm -rf node_modules package-lock.json
+          rm -rf node_modules
+          rm -f package-lock.json
 
       # Install dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # Build the project
       - name: Build Project
