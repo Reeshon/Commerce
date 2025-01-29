@@ -150,7 +150,7 @@ npm run deploy
 
 Your React app should now be deployed to GitHub Pages and accessible via the URL provided in the GitHub Pages settings.
 
-### 4. **Update Input Attributes**
+### 5. **Update Input Attributes**
 
 - Replace the deprecated `textprediction` attribute with `writingsuggestions` in your input elements.
 

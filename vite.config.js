@@ -3,25 +3,12 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-    base: '/Commerce/',
+    base: '/Commerce/', // Ensure this matches your GitHub Pages repository name
     plugins: [react()],
     build: {
         outDir: 'dist',
         emptyOutDir: true,
         sourcemap: true,
-<<<<<<< HEAD
-        rollupOptions: {
-            input: {
-                main: path.resolve(__dirname, 'index.html')
-            }
-        }
-    },
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, 'src')
-        },
-        extensions: ['.js', '.jsx', '.json']
-=======
         chunkSizeWarningLimit: 800,
         rollupOptions: {
             input: {
@@ -50,7 +37,10 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src')
-        }
->>>>>>> gh-pages
+        },
+        extensions: ['.js', '.jsx', '.json']
+    },
+    server: {
+        port: 3000
     }
 });
