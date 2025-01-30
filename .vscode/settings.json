@@ -1,0 +1,7 @@
+{
+  "debug.javascript.diagnosticsLogging": true,
+  "debug.javascript.autoAttachFilter": "always",
+  "debug.javascript.terminalOptions": {
+    "trace": true
+  }
+}
